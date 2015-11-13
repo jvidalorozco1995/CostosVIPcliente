@@ -1,0 +1,296 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebCostos.SiteMaster" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        #image {
+            height: 97px;
+        }
+        
+        body, html {margin:0; padding:0}
+#contenedor {
+  width:500px;
+  margin:auto;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  }
+ p {
+	margin-top: 0;
+}
+
+
+        .div {
+        
+       
+        
+        }
+        #form1 {
+            height: 655px;
+        }
+
+        #Contenido {
+        
+          border: 1px solid #C0C0C0;
+          /*height:1024px;
+          width:1700px;*/
+          width:80%;
+          height:100%;
+          float:left;
+        }
+
+ 
+        
+/* This is CSS */
+
+        #TextoMP {
+            list-style-type: none;      
+padding-left: 0;      
+margin-left: 0;
+            text-decoration: none; 
+font-family: Calibri;
+  font-size: 18pt;
+        }
+
+ul.nav2 {      
+list-style-type: none;      
+padding-left: 0;      
+margin-left: 0;
+
+} 
+ 
+ul.nav2 a {      
+text-decoration: none; 
+font-family: Calibri;
+  font-size: 12pt;
+  cursor:pointer;
+  color:#b70000; 
+color:#b70000;
+color:#b70000;
+color:#b70000;
+}
+
+
+/* mouse over link */
+ul.nav2 a:hover {
+    color: gray;
+}
+
+/* selected link */
+ul.nav2 a:active {
+    color: #0000FF;
+}
+
+
+
+
+
+
+ul.nav {      
+list-style-type: none;      
+padding-left: 0;      
+margin-left: 0;
+
+} 
+ 
+ul.nav a {      
+    
+ 
+        border-collapse: collapse;
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-right: 1px solid #C0C0C0;
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-bottom: 1px solid #C0C0C0;
+        margin-top:auto;
+           font-family:Calibri;
+       font-size:14px;
+       cursor:alias pointer;
+       text-decoration:solid;
+        color: #000000;
+/*text-decoration: none; 
+font-family: Calibri;
+  font-size: 12pt;
+  cursor:pointer;
+  color:black; 
+color:black;
+color:black;
+color:black;*/
+}
+
+
+/* mouse over link */
+ul.nav a:hover {
+    color: gray;
+}
+
+/* selected link */
+ul.nav a:active {
+    color:black;
+}
+
+
+
+
+   
+
+
+
+
+    </style>
+
+<style type="text/css">
+ 
+     #form1 {
+                height: 2473px;
+            }
+
+    .container{
+   
+    }
+    .left{
+        float: left;
+        color:white;
+        border-collapse: collapse;
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-right: 1px solid #C0C0C0;
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-bottom: 1px solid #C0C0C0;
+        margin-top:auto;
+        font-family:Calibri;
+        font-size:14px;
+        cursor:alias pointer;
+        text-decoration:solid;
+        height:100%;
+        width:13%;
+    }
+    .right{
+        float: left;
+        border-collapse: collapse;
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-right: 1px solid #C0C0C0;
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-bottom: 1px solid #C0C0C0;
+        margin-top:auto;
+        font-family:Calibri;
+        font-size:14px;
+        line-height:24px ;
+       
+   
+    }
+    .center{
+
+       float: left;
+       border:1px solid  #C0C0C0;
+       margin-top:auto;
+       font-family:Calibri;
+       font-size:14px;
+            
+     }
+    .auto-style1 {
+                width: 100%;
+                border-collapse: collapse;
+                border-left-style: solid;
+                border-left-width: 1px;
+                border-top-color: #C0C0C0;
+                border-right: 1px solid #C0C0C0;
+                border-top-style: solid;
+                border-top-width: 1px;
+                border-bottom:  1px solid #C0C0C0; 
+            }
+    .auto-style2 {
+        font-size: large;
+    }
+
+            </style>
+
+
+    <link rel="shortcut icon" type="images/x-icon" href="images/FAVICON.ICO" />
+</head>
+<body>
+    <form id="form1" runat="server">
+  
+        <div id="Header" style="background-color:#b70000; height: 40px; margin:auto" class="div">
+              
+            <div style="height: 40px; margin:0px 0px 0px 0px"  align="right" class="div"> 
+                <br />
+              
+              
+
+
+                  &nbsp;<br />
+              </div>
+
+              <div style="height: 40px; margin:0px 0px 0px 0px"  align="right" class="div"> 
+                <br />
+              
+
+                  &nbsp;<br />
+              </div>
+
+            </div>
+      
+          <div id="image" style ="border-right: 1px solid #C0C0C0;">
+
+                    <asp:ImageButton ID="Image1" runat="server" ImageUrl="~/images/logo.png" style="float:left;" /> 
+                      <br />
+                    <br />
+               
+           
+
+                  <span style="font-family:Calibri;color:#b70000; font-size: 14px; text-align: left;" >
+                    <br />
+                    Sitio de colaboración de Constructora Los Mayales S.A.</span>
+              </div>
+
+        <table class="auto-style1">
+            <tr>
+                <td>
+                    <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Calibri" Font-Size="12pt" ForeColor="#B70000" style="font-size: x-large">Integra Mayales</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+        
+            
+
+         <div class="left" style=" font-family:Calibri;color:#b70000; font-size: 14px; text-align: left; ">
+                             <span class="auto-style2">Menu Principal</span><br />
+                             <br />
+                     &nbsp;<asp:LinkButton style="TEXT-DECORATION: none" runat ="server" ID="BtnInforme" Text="Informe" OnClick="BtnInforme_Click" ForeColor="Black"></asp:LinkButton>
+                     <br />
+              &nbsp;<asp:LinkButton style="TEXT-DECORATION: none" runat ="server" ID="LinkButton1" Text="Informe CostoEntrado" OnClick="LinkButton1_Click1" ForeColor="Black"></asp:LinkButton>
+             
+                </div>
+        <div id="Contenido" style =" width: 86%">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+              </div>
+        <br />
+
+          
+ 
+
+
+
+
+
+
+
+
+
+
+    </form>
+</body>
+</html>
+

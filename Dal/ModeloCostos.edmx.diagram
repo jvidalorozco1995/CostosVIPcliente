@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9801602b76ae46bb8ec1595875fa7d72" Name="Diagram1" ZoomLevel="116">
+        <EntityTypeShape EntityType="COSTOSVIPModel.Areas" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.ClasificacionPresupuestos" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.DescripcionProyecto" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.Fechas" Width="1.5" PointX="3" PointY="16.375" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.Ordenes" Width="1.5" PointX="5.25" PointY="7.25" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.Pedidos" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.Proyectos" Width="1.5" PointX="0.75" PointY="16.875" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.Salidas" Width="1.5" PointX="5.25" PointY="23.5" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.Tipos" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.VistaCostos" Width="1.5" PointX="7.75" PointY="3.75" />
+        <AssociationConnector Association="COSTOSVIPModel.FK_Fechas_Proyectos" />
+        <AssociationConnector Association="COSTOSVIPModel.FK_Ordenes_Fechas" />
+        <AssociationConnector Association="COSTOSVIPModel.FK_Pedidos_Fechas" />
+        <AssociationConnector Association="COSTOSVIPModel.FK_Pedidos_Fechas1" />
+        <AssociationConnector Association="COSTOSVIPModel.FK_Salidas_Fechas" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.VistaCostosGastos" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.Descuentos" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.CostosPptoProg" Width="1.5" PointX="11.375" PointY="0.75" />
+        <AssociationConnector Association="COSTOSVIPModel.FK_CostosPptoProg_Fechas" />
+        <EntityTypeShape EntityType="COSTOSVIPModel.CostoEntrado" Width="1.5" PointX="5.25" PointY="15.375" />
+        <AssociationConnector Association="COSTOSVIPModel.FK_CostoEntrado_Fechas" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

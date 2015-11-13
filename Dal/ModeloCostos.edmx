@@ -1,0 +1,1082 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="COSTOSVIPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Areas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Proyecto" Type="varchar" MaxLength="6" />
+          <Property Name="NombreObra" Type="varchar" MaxLength="250" />
+          <Property Name="CodigoObraInmueble" Type="varchar" MaxLength="20" />
+          <Property Name="CodigoBloque" Type="varchar" MaxLength="20" />
+          <Property Name="NombreManzana" Type="varchar" MaxLength="80" />
+          <Property Name="CodigoInmueble" Type="varchar" MaxLength="20" />
+          <Property Name="ValorVenta" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Area" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="ClasificacionPresupuestos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodPresu" Type="varchar" MaxLength="6" />
+          <Property Name="NomPresu" Type="varchar" MaxLength="200" />
+          <Property Name="Tipo" Type="int" />
+        </EntityType>
+        <EntityType Name="CostoEntrado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="referencia1" Type="varchar" MaxLength="20" />
+          <Property Name="nombppto" Type="varchar" MaxLength="300" />
+          <Property Name="fecha" Type="varchar" MaxLength="30" />
+          <Property Name="orden" Type="varchar" MaxLength="15" />
+          <Property Name="Nliqu" Type="varchar" MaxLength="6" />
+          <Property Name="codterc" Type="nvarchar" MaxLength="5" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" />
+          <Property Name="cap" Type="varchar" MaxLength="4" />
+          <Property Name="nombrecap" Type="varchar" MaxLength="250" />
+          <Property Name="apu" Type="varchar" MaxLength="6" />
+          <Property Name="nombapu" Type="varchar" MaxLength="250" />
+          <Property Name="codigo" Type="varchar" MaxLength="5" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="unidad" Type="varchar" MaxLength="5" />
+          <Property Name="cantent" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrunitentrado" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="costoentrado" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="usuario" Type="varchar" MaxLength="50" />
+          <Property Name="IdFecha" Type="int" />
+        </EntityType>
+        <EntityType Name="CostosPptoProg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="referencia1" Type="varchar" MaxLength="30" />
+          <Property Name="referencia2" Type="varchar" MaxLength="30" />
+          <Property Name="referencia3" Type="varchar" MaxLength="30" />
+          <Property Name="presupuesto" Type="varchar" MaxLength="250" />
+          <Property Name="codcapi" Type="varchar" MaxLength="10" />
+          <Property Name="capitulo" Type="varchar" MaxLength="250" />
+          <Property Name="codunit" Type="varchar" MaxLength="10" />
+          <Property Name="unitario" Type="varchar" MaxLength="250" />
+          <Property Name="undunita" Type="varchar" MaxLength="10" />
+          <Property Name="cantxppto" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="codinsu" Type="varchar" MaxLength="10" />
+          <Property Name="insutipo" Type="varchar" MaxLength="10" />
+          <Property Name="insumo" Type="varchar" MaxLength="250" />
+          <Property Name="unidinsu" Type="varchar" MaxLength="10" />
+          <Property Name="ctrlinven" Type="varchar" MaxLength="6" />
+          <Property Name="validación" Type="varchar" MaxLength="6" />
+          <Property Name="precioppto" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="consumounitario" Type="decimal" Precision="20" Scale="3" />
+          <Property Name="consumototal" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="adic" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="precioaut" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="preciocompra" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="precioentrado" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="ped" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="aprob" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="comp" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="ent" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="sali" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="traslado" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="xcomp" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="xent" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="saldoxunit" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="saldoxppto" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrent" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrenttraslado" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrcompradoxent" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrxcomp" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrtraslado" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrproy" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrproyejec" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrini" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="vlrejec" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="descuento" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="IdFecha" Type="int" />
+        </EntityType>
+        <EntityType Name="DescripcionProyecto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Proyecto" Type="varchar" MaxLength="50" />
+          <Property Name="Nviviendas" Type="int" />
+          <Property Name="Area" Type="decimal" Precision="20" Scale="2" />
+        </EntityType>
+        <EntityType Name="Descuentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Referencia" Type="varchar" MaxLength="100" />
+          <Property Name="Tercero" Type="varchar" MaxLength="100" />
+          <Property Name="Liquidacion" Type="varchar" MaxLength="100" />
+          <Property Name="Obra" Type="varchar" MaxLength="100" />
+          <Property Name="Concepto" Type="varchar" MaxLength="200" />
+          <Property Name="Valor" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="Presupuesto" Type="varchar" MaxLength="150" />
+          <Property Name="IdFecha" Type="int" />
+        </EntityType>
+        <EntityType Name="Fechas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Proyecto" Type="varchar" MaxLength="4" />
+          <Property Name="Tipo" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Ordenes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Referencia1" Type="varchar" MaxLength="20" />
+          <Property Name="Presupuesto" Type="varchar" MaxLength="100" />
+          <Property Name="Cod_Unit" Type="varchar" MaxLength="6" />
+          <Property Name="Unitario" Type="varchar" MaxLength="100" />
+          <Property Name="Cod_Insumo" Type="varchar" MaxLength="6" />
+          <Property Name="Insumo" Type="varchar" MaxLength="100" />
+          <Property Name="Und" Type="varchar" MaxLength="4" />
+          <Property Name="Comp" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="Ent" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="PorEnt" Type="decimal" Precision="19" Scale="8" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Orden" Type="varchar" MaxLength="8" />
+          <Property Name="Tipo" Type="char" MaxLength="1" />
+          <Property Name="Cod_Prov" Type="varchar" MaxLength="6" />
+          <Property Name="Proveedor" Type="varchar" MaxLength="100" />
+          <Property Name="VlrUnita" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="CostEnt" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="IdFecha" Type="int" />
+        </EntityType>
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="referencia1" Type="varchar" MaxLength="20" />
+          <Property Name="codcapi" Type="varchar" MaxLength="8" />
+          <Property Name="codunit" Type="varchar" MaxLength="8" />
+          <Property Name="codinsu" Type="varchar" MaxLength="8" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="pedido" Type="varchar" MaxLength="8" />
+          <Property Name="ped" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="aprob" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="comp" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="xgenorden" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="orden" Type="varchar" MaxLength="8" />
+          <Property Name="usuario" Type="varchar" MaxLength="8" />
+          <Property Name="IdFecha" Type="int" />
+        </EntityType>
+        <EntityType Name="Proyectos">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Proyecto" Type="varchar" MaxLength="250" />
+          <Property Name="Filtro" Type="varchar" MaxLength="100" />
+          <Property Name="FechaIniObra" Type="datetime" />
+          <Property Name="FechaFinObra" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Salidas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="referencia" Type="varchar" MaxLength="20" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="liquidacion" Type="varchar" MaxLength="8" />
+          <Property Name="valeconsumo" Type="varchar" MaxLength="8" />
+          <Property Name="salida" Type="varchar" MaxLength="8" />
+          <Property Name="tiposa" Type="char" MaxLength="1" />
+          <Property Name="codcapi" Type="varchar" MaxLength="6" />
+          <Property Name="codunita" Type="varchar" MaxLength="6" />
+          <Property Name="codinsum" Type="varchar" MaxLength="6" />
+          <Property Name="insumo" Type="varchar" MaxLength="250" />
+          <Property Name="cant" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="costsali" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="saliobse" Type="varchar" MaxLength="250" />
+          <Property Name="saliusua" Type="varchar" MaxLength="50" />
+          <Property Name="IdFecha" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'COSTOSVIP.dbo.VistaCostos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VistaCostos">
+          <Key>
+            <PropertyRef Name="Clasificacion" />
+            <PropertyRef Name="Referencia1" />
+          </Key>
+          <Property Name="Referencia1" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="presupuesto" Type="varchar" MaxLength="250" />
+          <Property Name="Vlrproy" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Vlrejecutado" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="VlrCausado" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="IdFecha" Type="int" />
+          <Property Name="Clasificacion" Type="int" Nullable="false" />
+          <Property Name="nombreclasi" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'COSTOSVIP.dbo.VistaCostosGastos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VistaCostosGastos">
+          <Key>
+            <PropertyRef Name="Clasificacion" />
+            <PropertyRef Name="capitulo" />
+          </Key>
+          <Property Name="Referencia1" Type="varchar" MaxLength="7" />
+          <Property Name="presupuesto" Type="varchar" MaxLength="250" />
+          <Property Name="capitulo" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Vlrproy" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Vlrejecutado" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="VlrCausado" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="IdFecha" Type="int" />
+          <Property Name="Clasificacion" Type="int" Nullable="false" />
+          <Property Name="nombreclasi" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_CostoEntrado_Fechas">
+          <End Role="Fechas" Type="Self.Fechas" Multiplicity="0..1" />
+          <End Role="CostoEntrado" Type="Self.CostoEntrado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CostoEntrado">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostosPptoProg_Fechas">
+          <End Role="Fechas" Type="Self.Fechas" Multiplicity="0..1" />
+          <End Role="CostosPptoProg" Type="Self.CostosPptoProg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CostosPptoProg">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fechas_Proyectos">
+          <End Role="Proyectos" Type="Self.Proyectos" Multiplicity="0..1" />
+          <End Role="Fechas" Type="Self.Fechas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Fechas">
+              <PropertyRef Name="Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenes_Fechas">
+          <End Role="Fechas" Type="Self.Fechas" Multiplicity="0..1" />
+          <End Role="Ordenes" Type="Self.Ordenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedidos_Fechas">
+          <End Role="Fechas" Type="Self.Fechas" Multiplicity="0..1" />
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedidos_Fechas1">
+          <End Role="Fechas" Type="Self.Fechas" Multiplicity="0..1" />
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Fechas">
+          <End Role="Fechas" Type="Self.Fechas" Multiplicity="0..1" />
+          <End Role="Salidas" Type="Self.Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ActualizarCostosFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdFecha" Type="int" Mode="In" />
+          <Parameter Name="Proyecto" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="COSTOSVIPModelStoreContainer">
+          <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClasificacionPresupuestos" EntityType="Self.ClasificacionPresupuestos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CostoEntrado" EntityType="Self.CostoEntrado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CostosPptoProg" EntityType="Self.CostosPptoProg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DescripcionProyecto" EntityType="Self.DescripcionProyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Descuentos" EntityType="Self.Descuentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fechas" EntityType="Self.Fechas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ordenes" EntityType="Self.Ordenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proyectos" EntityType="Self.Proyectos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salidas" EntityType="Self.Salidas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipos" EntityType="Self.Tipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VistaCostos" EntityType="Self.VistaCostos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VistaCostos].[Referencia1] AS [Referencia1], 
+    [VistaCostos].[presupuesto] AS [presupuesto], 
+    [VistaCostos].[Vlrproy] AS [Vlrproy], 
+    [VistaCostos].[Vlrejecutado] AS [Vlrejecutado], 
+    [VistaCostos].[VlrCausado] AS [VlrCausado], 
+    [VistaCostos].[IdFecha] AS [IdFecha], 
+    [VistaCostos].[Clasificacion] AS [Clasificacion], 
+    [VistaCostos].[nombreclasi] AS [nombreclasi]
+    FROM [dbo].[VistaCostos] AS [VistaCostos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VistaCostosGastos" EntityType="Self.VistaCostosGastos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VistaCostosGastos].[Referencia1] AS [Referencia1], 
+    [VistaCostosGastos].[presupuesto] AS [presupuesto], 
+    [VistaCostosGastos].[capitulo] AS [capitulo], 
+    [VistaCostosGastos].[Vlrproy] AS [Vlrproy], 
+    [VistaCostosGastos].[Vlrejecutado] AS [Vlrejecutado], 
+    [VistaCostosGastos].[VlrCausado] AS [VlrCausado], 
+    [VistaCostosGastos].[IdFecha] AS [IdFecha], 
+    [VistaCostosGastos].[Clasificacion] AS [Clasificacion], 
+    [VistaCostosGastos].[nombreclasi] AS [nombreclasi]
+    FROM [dbo].[VistaCostosGastos] AS [VistaCostosGastos]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CostoEntrado_Fechas" Association="Self.FK_CostoEntrado_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="CostoEntrado" EntitySet="CostoEntrado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostosPptoProg_Fechas" Association="Self.FK_CostosPptoProg_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="CostosPptoProg" EntitySet="CostosPptoProg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fechas_Proyectos" Association="Self.FK_Fechas_Proyectos">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="Fechas" EntitySet="Fechas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenes_Fechas" Association="Self.FK_Ordenes_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedidos_Fechas" Association="Self.FK_Pedidos_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedidos_Fechas1" Association="Self.FK_Pedidos_Fechas1">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Fechas" Association="Self.FK_Salidas_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="COSTOSVIPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="COSTOSVIPEnti" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="ActualizarCostosFecha">
+            <Parameter Name="IdFecha" Mode="In" Type="Int32" />
+            <Parameter Name="Proyecto" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Areas" EntityType="COSTOSVIPModel.Areas" />
+          <EntitySet Name="ClasificacionPresupuestos" EntityType="COSTOSVIPModel.ClasificacionPresupuestos" />
+          <EntitySet Name="DescripcionProyecto" EntityType="COSTOSVIPModel.DescripcionProyecto" />
+          <EntitySet Name="Fechas" EntityType="COSTOSVIPModel.Fechas" />
+          <EntitySet Name="Ordenes" EntityType="COSTOSVIPModel.Ordenes" />
+          <EntitySet Name="Pedidos" EntityType="COSTOSVIPModel.Pedidos" />
+          <EntitySet Name="Proyectos" EntityType="COSTOSVIPModel.Proyectos" />
+          <EntitySet Name="Salidas" EntityType="COSTOSVIPModel.Salidas" />
+          <EntitySet Name="Tipos" EntityType="COSTOSVIPModel.Tipos" />
+          <EntitySet Name="VistaCostos" EntityType="COSTOSVIPModel.VistaCostos" />
+          <AssociationSet Name="FK_Fechas_Proyectos" Association="COSTOSVIPModel.FK_Fechas_Proyectos">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="Fechas" EntitySet="Fechas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenes_Fechas" Association="COSTOSVIPModel.FK_Ordenes_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedidos_Fechas" Association="COSTOSVIPModel.FK_Pedidos_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedidos_Fechas1" Association="COSTOSVIPModel.FK_Pedidos_Fechas1">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salidas_Fechas" Association="COSTOSVIPModel.FK_Salidas_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="Salidas" EntitySet="Salidas" />
+          </AssociationSet>
+          <EntitySet Name="VistaCostosGastos" EntityType="COSTOSVIPModel.VistaCostosGastos" />
+          <EntitySet Name="Descuentos" EntityType="COSTOSVIPModel.Descuentos" />
+          <EntitySet Name="CostosPptoProg" EntityType="COSTOSVIPModel.CostosPptoProg" />
+          <AssociationSet Name="FK_CostosPptoProg_Fechas" Association="COSTOSVIPModel.FK_CostosPptoProg_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="CostosPptoProg" EntitySet="CostosPptoProg" />
+          </AssociationSet>
+          <EntitySet Name="CostoEntrado" EntityType="COSTOSVIPModel.CostoEntrado" />
+          <AssociationSet Name="FK_CostoEntrado_Fechas" Association="COSTOSVIPModel.FK_CostoEntrado_Fechas">
+            <End Role="Fechas" EntitySet="Fechas" />
+            <End Role="CostoEntrado" EntitySet="CostoEntrado" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Areas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Proyecto" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="NombreObra" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoObraInmueble" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoBloque" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NombreManzana" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoInmueble" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ValorVenta" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Area" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="ClasificacionPresupuestos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodPresu" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="NomPresu" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DescripcionProyecto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nviviendas" Type="Int32" />
+          <Property Name="Area" Type="Decimal" Precision="20" Scale="2" />
+        </EntityType>
+        <EntityType Name="Fechas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Proyecto" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proyectos" Relationship="COSTOSVIPModel.FK_Fechas_Proyectos" FromRole="Fechas" ToRole="Proyectos" />
+          <NavigationProperty Name="Ordenes" Relationship="COSTOSVIPModel.FK_Ordenes_Fechas" FromRole="Fechas" ToRole="Ordenes" />
+          <NavigationProperty Name="Pedidos" Relationship="COSTOSVIPModel.FK_Pedidos_Fechas" FromRole="Fechas" ToRole="Pedidos" />
+          <NavigationProperty Name="Pedidos1" Relationship="COSTOSVIPModel.FK_Pedidos_Fechas1" FromRole="Fechas" ToRole="Pedidos" />
+          <NavigationProperty Name="Salidas" Relationship="COSTOSVIPModel.FK_Salidas_Fechas" FromRole="Fechas" ToRole="Salidas" />
+          <NavigationProperty Name="CostosPptoProg" Relationship="COSTOSVIPModel.FK_CostosPptoProg_Fechas" FromRole="Fechas" ToRole="CostosPptoProg" />
+          <NavigationProperty Name="CostoEntrado" Relationship="COSTOSVIPModel.FK_CostoEntrado_Fechas" FromRole="Fechas" ToRole="CostoEntrado" />
+        </EntityType>
+        <EntityType Name="Ordenes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Referencia1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Presupuesto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cod_Unit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Unitario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cod_Insumo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Insumo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Und" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Comp" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="Ent" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="PorEnt" Type="Decimal" Precision="19" Scale="8" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Orden" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Cod_Prov" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Proveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VlrUnita" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="CostEnt" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdFecha" Type="Int32" />
+          <NavigationProperty Name="Fechas" Relationship="COSTOSVIPModel.FK_Ordenes_Fechas" FromRole="Ordenes" ToRole="Fechas" />
+        </EntityType>
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="referencia1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="codcapi" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="codunit" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="codinsu" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="pedido" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ped" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="aprob" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="comp" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="xgenorden" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="orden" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="usuario" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="IdFecha" Type="Int32" />
+          <NavigationProperty Name="Fechas" Relationship="COSTOSVIPModel.FK_Pedidos_Fechas" FromRole="Pedidos" ToRole="Fechas" />
+          <NavigationProperty Name="Fechas1" Relationship="COSTOSVIPModel.FK_Pedidos_Fechas1" FromRole="Pedidos" ToRole="Fechas" />
+        </EntityType>
+        <EntityType Name="Proyectos">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Proyecto" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Filtro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIniObra" Type="DateTime" Precision="3" />
+          <Property Name="FechaFinObra" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Fechas" Relationship="COSTOSVIPModel.FK_Fechas_Proyectos" FromRole="Proyectos" ToRole="Fechas" />
+        </EntityType>
+        <EntityType Name="Salidas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="referencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="liquidacion" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="valeconsumo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="salida" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="tiposa" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="codcapi" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="codunita" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="codinsum" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="insumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="cant" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="costsali" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="saliobse" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="saliusua" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdFecha" Type="Int32" />
+          <NavigationProperty Name="Fechas" Relationship="COSTOSVIPModel.FK_Salidas_Fechas" FromRole="Salidas" ToRole="Fechas" />
+        </EntityType>
+        <EntityType Name="Tipos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VistaCostos">
+          <Key>
+            <PropertyRef Name="Clasificacion" />
+            <PropertyRef Name="Referencia1" />
+          </Key>
+          <Property Name="Referencia1" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="presupuesto" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Vlrproy" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Vlrejecutado" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="VlrCausado" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="IdFecha" Type="Int32" />
+          <Property Name="Clasificacion" Type="Int32" Nullable="false" />
+          <Property Name="nombreclasi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Fechas_Proyectos">
+          <End Type="COSTOSVIPModel.Proyectos" Role="Proyectos" Multiplicity="0..1" />
+          <End Type="COSTOSVIPModel.Fechas" Role="Fechas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Fechas">
+              <PropertyRef Name="Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenes_Fechas">
+          <End Type="COSTOSVIPModel.Fechas" Role="Fechas" Multiplicity="0..1" />
+          <End Type="COSTOSVIPModel.Ordenes" Role="Ordenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedidos_Fechas">
+          <End Type="COSTOSVIPModel.Fechas" Role="Fechas" Multiplicity="0..1" />
+          <End Type="COSTOSVIPModel.Pedidos" Role="Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedidos_Fechas1">
+          <End Type="COSTOSVIPModel.Fechas" Role="Fechas" Multiplicity="0..1" />
+          <End Type="COSTOSVIPModel.Pedidos" Role="Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salidas_Fechas">
+          <End Type="COSTOSVIPModel.Fechas" Role="Fechas" Multiplicity="0..1" />
+          <End Type="COSTOSVIPModel.Salidas" Role="Salidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salidas">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VistaCostosGastos">
+          <Key>
+            <PropertyRef Name="Clasificacion" />
+            <PropertyRef Name="capitulo" />
+          </Key>
+          <Property Name="Referencia1" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="presupuesto" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="capitulo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vlrproy" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Vlrejecutado" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="VlrCausado" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="IdFecha" Type="Int32" />
+          <Property Name="Clasificacion" Type="Int32" Nullable="false" />
+          <Property Name="nombreclasi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Descuentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Referencia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tercero" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Liquidacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Obra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Concepto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Valor" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="Presupuesto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IdFecha" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CostosPptoProg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="referencia1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="referencia2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="referencia3" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="presupuesto" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="codcapi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="capitulo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="codunit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="unitario" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="undunita" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="cantxppto" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="codinsu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="insutipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="insumo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="unidinsu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ctrlinven" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="validación" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="precioppto" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="consumounitario" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="consumototal" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="adic" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="precioaut" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="preciocompra" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="precioentrado" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="ped" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="aprob" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="comp" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="ent" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="sali" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="traslado" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="xcomp" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="xent" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="saldoxunit" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="saldoxppto" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrent" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrenttraslado" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrcompradoxent" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrxcomp" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrtraslado" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrproy" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrproyejec" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrini" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrejec" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="IdFecha" Type="Int32" />
+          <Property Name="descuento" Type="Decimal" Precision="20" Scale="2" />
+          <NavigationProperty Name="Fechas" Relationship="COSTOSVIPModel.FK_CostosPptoProg_Fechas" FromRole="CostosPptoProg" ToRole="Fechas" />
+        </EntityType>
+        <Association Name="FK_CostosPptoProg_Fechas">
+          <End Type="COSTOSVIPModel.Fechas" Role="Fechas" Multiplicity="0..1" />
+          <End Type="COSTOSVIPModel.CostosPptoProg" Role="CostosPptoProg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CostosPptoProg">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CostoEntrado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="referencia1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nombppto" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="orden" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Nliqu" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="codterc" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="cap" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="nombrecap" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="apu" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="nombapu" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="unidad" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="cantent" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="vlrunitentrado" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="costoentrado1" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdFecha" Type="Int32" />
+          <NavigationProperty Name="Fechas" Relationship="COSTOSVIPModel.FK_CostoEntrado_Fechas" FromRole="CostoEntrado" ToRole="Fechas" />
+        </EntityType>
+        <Association Name="FK_CostoEntrado_Fechas">
+          <End Type="COSTOSVIPModel.Fechas" Role="Fechas" Multiplicity="0..1" />
+          <End Type="COSTOSVIPModel.CostoEntrado" Role="CostoEntrado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fechas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CostoEntrado">
+              <PropertyRef Name="IdFecha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="COSTOSVIPModelStoreContainer" CdmEntityContainer="COSTOSVIPEnti">
+          <FunctionImportMapping FunctionImportName="ActualizarCostosFecha" FunctionName="COSTOSVIPModel.Store.ActualizarCostosFecha" />
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.Areas">
+              <MappingFragment StoreEntitySet="Areas">
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="ValorVenta" ColumnName="ValorVenta" />
+                <ScalarProperty Name="CodigoInmueble" ColumnName="CodigoInmueble" />
+                <ScalarProperty Name="NombreManzana" ColumnName="NombreManzana" />
+                <ScalarProperty Name="CodigoBloque" ColumnName="CodigoBloque" />
+                <ScalarProperty Name="CodigoObraInmueble" ColumnName="CodigoObraInmueble" />
+                <ScalarProperty Name="NombreObra" ColumnName="NombreObra" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClasificacionPresupuestos">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.ClasificacionPresupuestos">
+              <MappingFragment StoreEntitySet="ClasificacionPresupuestos">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="NomPresu" ColumnName="NomPresu" />
+                <ScalarProperty Name="CodPresu" ColumnName="CodPresu" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DescripcionProyecto">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.DescripcionProyecto">
+              <MappingFragment StoreEntitySet="DescripcionProyecto">
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Nviviendas" ColumnName="Nviviendas" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fechas">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.Fechas">
+              <MappingFragment StoreEntitySet="Fechas">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ordenes">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.Ordenes">
+              <MappingFragment StoreEntitySet="Ordenes">
+                <ScalarProperty Name="IdFecha" ColumnName="IdFecha" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="CostEnt" ColumnName="CostEnt" />
+                <ScalarProperty Name="VlrUnita" ColumnName="VlrUnita" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="Cod_Prov" ColumnName="Cod_Prov" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="PorEnt" ColumnName="PorEnt" />
+                <ScalarProperty Name="Ent" ColumnName="Ent" />
+                <ScalarProperty Name="Comp" ColumnName="Comp" />
+                <ScalarProperty Name="Und" ColumnName="Und" />
+                <ScalarProperty Name="Insumo" ColumnName="Insumo" />
+                <ScalarProperty Name="Cod_Insumo" ColumnName="Cod_Insumo" />
+                <ScalarProperty Name="Unitario" ColumnName="Unitario" />
+                <ScalarProperty Name="Cod_Unit" ColumnName="Cod_Unit" />
+                <ScalarProperty Name="Presupuesto" ColumnName="Presupuesto" />
+                <ScalarProperty Name="Referencia1" ColumnName="Referencia1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedidos">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.Pedidos">
+              <MappingFragment StoreEntitySet="Pedidos">
+                <ScalarProperty Name="IdFecha" ColumnName="IdFecha" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="xgenorden" ColumnName="xgenorden" />
+                <ScalarProperty Name="comp" ColumnName="comp" />
+                <ScalarProperty Name="aprob" ColumnName="aprob" />
+                <ScalarProperty Name="ped" ColumnName="ped" />
+                <ScalarProperty Name="pedido" ColumnName="pedido" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="codinsu" ColumnName="codinsu" />
+                <ScalarProperty Name="codunit" ColumnName="codunit" />
+                <ScalarProperty Name="codcapi" ColumnName="codcapi" />
+                <ScalarProperty Name="referencia1" ColumnName="referencia1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proyectos">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.Proyectos">
+              <MappingFragment StoreEntitySet="Proyectos">
+                <ScalarProperty Name="FechaFinObra" ColumnName="FechaFinObra" />
+                <ScalarProperty Name="FechaIniObra" ColumnName="FechaIniObra" />
+                <ScalarProperty Name="Filtro" ColumnName="Filtro" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salidas">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.Salidas">
+              <MappingFragment StoreEntitySet="Salidas">
+                <ScalarProperty Name="IdFecha" ColumnName="IdFecha" />
+                <ScalarProperty Name="saliusua" ColumnName="saliusua" />
+                <ScalarProperty Name="saliobse" ColumnName="saliobse" />
+                <ScalarProperty Name="costsali" ColumnName="costsali" />
+                <ScalarProperty Name="cant" ColumnName="cant" />
+                <ScalarProperty Name="insumo" ColumnName="insumo" />
+                <ScalarProperty Name="codinsum" ColumnName="codinsum" />
+                <ScalarProperty Name="codunita" ColumnName="codunita" />
+                <ScalarProperty Name="codcapi" ColumnName="codcapi" />
+                <ScalarProperty Name="tiposa" ColumnName="tiposa" />
+                <ScalarProperty Name="salida" ColumnName="salida" />
+                <ScalarProperty Name="valeconsumo" ColumnName="valeconsumo" />
+                <ScalarProperty Name="liquidacion" ColumnName="liquidacion" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipos">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.Tipos">
+              <MappingFragment StoreEntitySet="Tipos">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaCostos">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.VistaCostos">
+              <MappingFragment StoreEntitySet="VistaCostos">
+                <ScalarProperty Name="nombreclasi" ColumnName="nombreclasi" />
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+                <ScalarProperty Name="IdFecha" ColumnName="IdFecha" />
+                <ScalarProperty Name="VlrCausado" ColumnName="VlrCausado" />
+                <ScalarProperty Name="Vlrejecutado" ColumnName="Vlrejecutado" />
+                <ScalarProperty Name="Vlrproy" ColumnName="Vlrproy" />
+                <ScalarProperty Name="presupuesto" ColumnName="presupuesto" />
+                <ScalarProperty Name="Referencia1" ColumnName="Referencia1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaCostosGastos">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.VistaCostosGastos">
+              <MappingFragment StoreEntitySet="VistaCostosGastos">
+                <ScalarProperty Name="nombreclasi" ColumnName="nombreclasi" />
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+                <ScalarProperty Name="IdFecha" ColumnName="IdFecha" />
+                <ScalarProperty Name="VlrCausado" ColumnName="VlrCausado" />
+                <ScalarProperty Name="Vlrejecutado" ColumnName="Vlrejecutado" />
+                <ScalarProperty Name="Vlrproy" ColumnName="Vlrproy" />
+                <ScalarProperty Name="capitulo" ColumnName="capitulo" />
+                <ScalarProperty Name="presupuesto" ColumnName="presupuesto" />
+                <ScalarProperty Name="Referencia1" ColumnName="Referencia1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Descuentos">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.Descuentos">
+              <MappingFragment StoreEntitySet="Descuentos">
+                <ScalarProperty Name="IdFecha" ColumnName="IdFecha" />
+                <ScalarProperty Name="Presupuesto" ColumnName="Presupuesto" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Obra" ColumnName="Obra" />
+                <ScalarProperty Name="Liquidacion" ColumnName="Liquidacion" />
+                <ScalarProperty Name="Tercero" ColumnName="Tercero" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CostosPptoProg">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.CostosPptoProg">
+              <MappingFragment StoreEntitySet="CostosPptoProg">
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="IdFecha" ColumnName="IdFecha" />
+                <ScalarProperty Name="vlrejec" ColumnName="vlrejec" />
+                <ScalarProperty Name="vlrini" ColumnName="vlrini" />
+                <ScalarProperty Name="vlrproyejec" ColumnName="vlrproyejec" />
+                <ScalarProperty Name="vlrproy" ColumnName="vlrproy" />
+                <ScalarProperty Name="vlrtraslado" ColumnName="vlrtraslado" />
+                <ScalarProperty Name="vlrxcomp" ColumnName="vlrxcomp" />
+                <ScalarProperty Name="vlrcompradoxent" ColumnName="vlrcompradoxent" />
+                <ScalarProperty Name="vlrenttraslado" ColumnName="vlrenttraslado" />
+                <ScalarProperty Name="vlrent" ColumnName="vlrent" />
+                <ScalarProperty Name="saldoxppto" ColumnName="saldoxppto" />
+                <ScalarProperty Name="saldoxunit" ColumnName="saldoxunit" />
+                <ScalarProperty Name="xent" ColumnName="xent" />
+                <ScalarProperty Name="xcomp" ColumnName="xcomp" />
+                <ScalarProperty Name="traslado" ColumnName="traslado" />
+                <ScalarProperty Name="sali" ColumnName="sali" />
+                <ScalarProperty Name="ent" ColumnName="ent" />
+                <ScalarProperty Name="comp" ColumnName="comp" />
+                <ScalarProperty Name="aprob" ColumnName="aprob" />
+                <ScalarProperty Name="ped" ColumnName="ped" />
+                <ScalarProperty Name="precioentrado" ColumnName="precioentrado" />
+                <ScalarProperty Name="preciocompra" ColumnName="preciocompra" />
+                <ScalarProperty Name="precioaut" ColumnName="precioaut" />
+                <ScalarProperty Name="adic" ColumnName="adic" />
+                <ScalarProperty Name="consumototal" ColumnName="consumototal" />
+                <ScalarProperty Name="consumounitario" ColumnName="consumounitario" />
+                <ScalarProperty Name="precioppto" ColumnName="precioppto" />
+                <ScalarProperty Name="validación" ColumnName="validación" />
+                <ScalarProperty Name="ctrlinven" ColumnName="ctrlinven" />
+                <ScalarProperty Name="unidinsu" ColumnName="unidinsu" />
+                <ScalarProperty Name="insumo" ColumnName="insumo" />
+                <ScalarProperty Name="insutipo" ColumnName="insutipo" />
+                <ScalarProperty Name="codinsu" ColumnName="codinsu" />
+                <ScalarProperty Name="cantxppto" ColumnName="cantxppto" />
+                <ScalarProperty Name="undunita" ColumnName="undunita" />
+                <ScalarProperty Name="unitario" ColumnName="unitario" />
+                <ScalarProperty Name="codunit" ColumnName="codunit" />
+                <ScalarProperty Name="capitulo" ColumnName="capitulo" />
+                <ScalarProperty Name="codcapi" ColumnName="codcapi" />
+                <ScalarProperty Name="presupuesto" ColumnName="presupuesto" />
+                <ScalarProperty Name="referencia3" ColumnName="referencia3" />
+                <ScalarProperty Name="referencia2" ColumnName="referencia2" />
+                <ScalarProperty Name="referencia1" ColumnName="referencia1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CostoEntrado">
+            <EntityTypeMapping TypeName="COSTOSVIPModel.CostoEntrado">
+              <MappingFragment StoreEntitySet="CostoEntrado">
+                <ScalarProperty Name="IdFecha" ColumnName="IdFecha" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="costoentrado1" ColumnName="costoentrado" />
+                <ScalarProperty Name="vlrunitentrado" ColumnName="vlrunitentrado" />
+                <ScalarProperty Name="cantent" ColumnName="cantent" />
+                <ScalarProperty Name="unidad" ColumnName="unidad" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombapu" ColumnName="nombapu" />
+                <ScalarProperty Name="apu" ColumnName="apu" />
+                <ScalarProperty Name="nombrecap" ColumnName="nombrecap" />
+                <ScalarProperty Name="cap" ColumnName="cap" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codterc" ColumnName="codterc" />
+                <ScalarProperty Name="Nliqu" ColumnName="Nliqu" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="nombppto" ColumnName="nombppto" />
+                <ScalarProperty Name="referencia1" ColumnName="referencia1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
