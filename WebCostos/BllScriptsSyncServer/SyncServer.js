@@ -64,10 +64,9 @@ function GuardarFechas() {
     // unblock when ajax activity stops 
 
 
-    var par = $('#CmbProyectos').val();
-    var o = par.split("-");
-    var Proyecto = o[0];
-    var fil = o[1];
+  
+    var Proyecto = $('#ContentPlaceHolder2_DropDownList1').val();
+    alert(Proyecto);
 
 
 

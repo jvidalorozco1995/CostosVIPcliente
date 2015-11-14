@@ -13,37 +13,15 @@
 
 
     <script type="text/javascript">
-        
         $(document).ready(function () {
  
-            //Consumo del wServi
-            Clientes = _GET("Servicios/ProyectosWS.asmx/ListaProyectos");
-            $("#CmbProyectos").append("<option value=''>Seleccionar...</option>");
-
-            $.each(Clientes, function (k, v) {
-                $("#CmbProyectos").append("<option value=\"" + v.Codigo + '-' + v.Filtro + "\">" + v.Proyecto + "</option>");
-            })
-
-            $(document).on('change', '#CmbProyectos', function () {
-                var par = $('#CmbProyectos').val();
-                var o = par.split("-");
-                var Proyect = o[0];
-                var fil = o[1];
-                sessionStorage["Proyecto"] = Proyect;
-                $('#<% =HiddenField1.ClientID %>').attr('value', Proyect);
-                //  document.getElementById('<%=Button1.ClientID %>').click();
-                //  document.getElementById('<%=GridView1.ClientID %>').();
-
-            });
-
             $("#btnGuardar").click(function () {
 
                  GuardarFechas();
             });
 
         });
-
-     </script>
+   </script>
 
      
     <style type="text/css">
@@ -51,39 +29,37 @@
             width: 278px;
         }
     </style>
-
-     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-   
+
      <div id="divMessage" style="display: none;">
             Please wait ....
         </div>
-    <asp:HiddenField ID="HiddenField1" runat="server" />
+
        <asp:Label ID="Label3" runat="server" Font-Names="Calibri" Font-Size="18pt" ForeColor="#B70000" Text="Actualizar y Generar Costos"></asp:Label>
     <br />
+         <div style="display:none;">
+        <asp:TextBox ID="TextBox1"  runat ="server" ></asp:TextBox>
+     </div>
   <div style="display:none">
     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
   </div>
 
     <br />
       
-        <br />
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Proyecto" DataValueField="Codigo" Height="16px" Width="182px" AutoPostBack="True">
+     </asp:DropDownList>
+     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:COSTOSVIPConnectionString %>" SelectCommand="SELECT * FROM [Proyectos]"></asp:SqlDataSource>
       
-        <select  id="CmbProyectos"/>
+        <br />
+      <asp:ScriptManager ID="ScriptManager1" runat="server">
+     </asp:ScriptManager>
 
-<br />
 
-<br />
-    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
    
-    </select><input type="button" id="btnGuardar" value="Guardar" /><br />
+    
+     <input type="button" id="btnGuardar" value="Guardar" /><br />
+     <br />
    
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SlqListaFechas" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
@@ -115,11 +91,10 @@
     </asp:GridView>
     <asp:SqlDataSource ID="SlqListaFechas" runat="server" ConnectionString="<%$ ConnectionStrings:COSTOSVIPConnectionString %>" SelectCommand="SELECT * FROM [Fechas] WHERE ([Proyecto] = @Proyecto) ORDER BY [Fecha] DESC">
         <SelectParameters>
-            <asp:Parameter DefaultValue="CMS" Name="Proyecto" Type="String" />
+            <asp:ControlParameter ControlID="DropDownList1" DefaultValue="CMS" Name="Proyecto" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
 
-     <asp:ScriptManager ID="ScriptManager1" runat="server">
-     </asp:ScriptManager>
+   
 
 </asp:Content>

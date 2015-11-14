@@ -22,14 +22,16 @@ namespace WebCostos
                 //Set the session value from HiddenField
   
              
-            }
-
+            
+           }
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session["Proyecto"] = HiddenField1.Value;
-          
+           /// ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
+        
         }
 
       
@@ -248,5 +250,13 @@ namespace WebCostos
 
             }
         }
+
+
+        protected void SlqListaFechas_DataBinding(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
+        }
+
+       
     }
 }
