@@ -1,7 +1,10 @@
 ﻿//var urlapp = "http://190.146.2.135:80/CostosVIP";
 //var urlapplocal = "http://190.146.2.135:80/Costos";
-var urlapp = "http://localhost:51731";
-var urlapplocal = "http://localhost:2279";
+//var urlapp = "http://localhost:51731";
+//var urlapplocal = "http://localhost:2279";.
+var urlapp = "../../../../../CostosVIP";
+var urlapplocal = "../../../../../Costos";
+
 
 /*Funcion para eliminar el area cada vez que se actualize*/
 function EliminarAreas(Proyecto, Id) {

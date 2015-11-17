@@ -10,8 +10,6 @@ app.filter('euro', function () {
         var t = currencyFormatDE(text)
         return t;
     };
-
-
     function currencyFormatDE(num) {
         return num
            .toFixed(2) // always two decimal digits
@@ -24,8 +22,9 @@ app.filter('euro', function () {
 app.controller('CostosController', function ($scope, $http) {
     
    // var urlapp = "http://190.146.2.135:80/Costos";
-    var urlapp = "http://localhost:2279";
-   
+    //var urlapp = "http://localhost:2279";
+    var urlapp = "../../../../../Costos"
+
    /*Metodo inicial para llamar cuando se inicializa la pagina*/
     $scope.init = function () {
          $scope.CargarProyectos();
@@ -46,14 +45,14 @@ app.controller('CostosController', function ($scope, $http) {
         var urlx = urlapp+"/Servicios/InformeSemanaActual.asmx/CargarCostosSemanaActual";
         var ent = {};
         ent.IdFecha = 2;
-        var parametrosJSON = { IdFecha: ent };
+        var parametrosJSON = { IdFecha: ent, Proyecto: $scope.Proy.Codigo };
 
         $http({
             ignoreLoadingBar: true,
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaA.Id },
+            data: { IdFecha: $scope.SemanaA.Id,  },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -72,14 +71,12 @@ app.controller('CostosController', function ($scope, $http) {
      $scope.DetalleCostosIndirectosSemanaActual = function () {
          
          var urlx = urlapp+"/Servicios/InformeSemanaActual.asmx/DetalleCostosIndirectosSemanaActual";
-         
-
          $http({
              ignoreLoadingBar: true,
              url: urlx,
              dataType: 'json',
              method: 'POST',
-             data: { IdFecha: $scope.SemanaA.Id },
+             data: { IdFecha: $scope.SemanaA.Id, Proyecto: $scope.Proy.Codigo },
              headers: {
                  "Content-Type": "application/json"
              }
@@ -107,7 +104,7 @@ app.controller('CostosController', function ($scope, $http) {
              url: urlx,
              dataType: 'json',
              method: 'POST',
-             data: { IdFecha: $scope.SemanaA.Id },
+             data: { IdFecha: $scope.SemanaA.Id, Proyecto: $scope.Proy.Codigo },
              headers: {
                  "Content-Type": "application/json"
              }
@@ -134,7 +131,7 @@ app.controller('CostosController', function ($scope, $http) {
              url: urlx,
              dataType: 'json',
              method: 'POST',
-             data: { IdFecha: $scope.SemanaA.Id },
+             data: { IdFecha: $scope.SemanaA.Id, Proyecto: $scope.Proy.Codigo },
              headers: {
                  "Content-Type": "application/json"
              }
@@ -163,7 +160,7 @@ app.controller('CostosController', function ($scope, $http) {
              url: urlx,
              dataType: 'json',
              method: 'POST',
-             data: { IdFecha: $scope.SemanaA.Id },
+             data: { IdFecha: $scope.SemanaA.Id, Proyecto: $scope.Proy.Codigo },
              headers: {
                  "Content-Type": "application/json"
              }
@@ -191,7 +188,7 @@ app.controller('CostosController', function ($scope, $http) {
              url: urlx,
              dataType: 'json',
              method: 'POST',
-             data: { IdFecha: $scope.SemanaA.Id },
+             data: { IdFecha: $scope.SemanaA.Id, Proyecto: $scope.Proy.Codigo },
              headers: {
                  "Content-Type": "application/json"
              }
@@ -219,7 +216,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaA.Id },
+            data: { IdFecha: $scope.SemanaA.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -247,7 +244,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaA.Id },
+            data: { IdFecha: $scope.SemanaA.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -280,7 +277,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaP.Id },
+            data: { IdFecha: $scope.SemanaP.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -307,7 +304,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaP.Id },
+            data: { IdFecha: $scope.SemanaP.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -334,7 +331,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaP.Id },
+            data: { IdFecha: $scope.SemanaP.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -360,7 +357,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaP.Id },
+            data: { IdFecha: $scope.SemanaP.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -388,7 +385,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaP.Id },
+            data: { IdFecha: $scope.SemanaP.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -409,7 +406,7 @@ app.controller('CostosController', function ($scope, $http) {
         var urlx = urlapp+"/Servicios/InformeSemanaPasada.asmx/GruposCostosDirectosSemanaPasada";
         var ent = {};
         ent.IdFecha = 2;
-        var parametrosJSON = { IdFecha: ent };
+        var parametrosJSON = { IdFecha: ent, Proyecto: $scope.Proy.Codigo };
 
         $http({
             url: urlx,
@@ -442,7 +439,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaP.Id },
+            data: { IdFecha: $scope.SemanaP.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -477,7 +474,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaL.Id },
+            data: { IdFecha: $scope.SemanaL.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -504,7 +501,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaL.Id },
+            data: { IdFecha: $scope.SemanaL.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -531,7 +528,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaL.Id },
+            data: { IdFecha: $scope.SemanaL.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -557,7 +554,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaL.Id },
+            data: { IdFecha: $scope.SemanaL.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -585,7 +582,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaL.Id },
+            data: { IdFecha: $scope.SemanaL.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -612,7 +609,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaL.Id },
+            data: { IdFecha: $scope.SemanaL.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }
@@ -639,7 +636,7 @@ app.controller('CostosController', function ($scope, $http) {
             url: urlx,
             dataType: 'json',
             method: 'POST',
-            data: { IdFecha: $scope.SemanaL.Id },
+            data: { IdFecha: $scope.SemanaL.Id, Proyecto: $scope.Proy.Codigo },
             headers: {
                 "Content-Type": "application/json"
             }

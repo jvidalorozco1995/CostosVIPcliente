@@ -55,7 +55,7 @@ namespace WebCostos.Servicios
                 theString = aStringBuilder.ToString().TrimEnd('"');
                 theString = theString.TrimStart('"');
 
-                System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Areas.json", Holsa.RemoveWhitespace(theString));
+             //   System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Areas.json", Holsa.RemoveWhitespace(theString));
                 Utilidades cn = new Utilidades();
                 string sConnectionString = ConfigurationManager.ConnectionStrings["COSTOSVIPEntities"].ConnectionString;
                 SqlBulkCopy copia = new SqlBulkCopy(sConnectionString);
@@ -90,7 +90,7 @@ namespace WebCostos.Servicios
                 var aStringBuilder = new StringBuilder(theString);
                 theString = aStringBuilder.ToString().TrimEnd('"');
                 theString = theString.TrimStart('"');
-                System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Salidas.json", Holsa.RemoveWhitespace(theString));
+              //  System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Salidas.json", Holsa.RemoveWhitespace(theString));
                 Utilidades cn = new Utilidades();
                 string sConnectionString = ConfigurationManager.ConnectionStrings["COSTOSVIPEntities"].ConnectionString;
                 SqlBulkCopy copia = new SqlBulkCopy(sConnectionString);
@@ -128,7 +128,7 @@ namespace WebCostos.Servicios
              
                    /*Metodo que llena un datatable costoentrado y lo inserta en la base de datos*/
               
-                   System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\CostoEntrado.json", Holsa.RemoveWhitespace(theString));
+               //    System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\CostoEntrado.json", Holsa.RemoveWhitespace(theString));
                    Utilidades cn = new Utilidades();
                    string sConnectionString = ConfigurationManager.ConnectionStrings["COSTOSVIPEntities"].ConnectionString;
                    SqlBulkCopy copia = new SqlBulkCopy(sConnectionString);
@@ -169,7 +169,7 @@ namespace WebCostos.Servicios
                var aStringBuilder = new StringBuilder(theString);
                theString = aStringBuilder.ToString().TrimEnd('"');
                theString = theString.TrimStart('"');
-               System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Ordenes.json", Holsa.RemoveWhitespace(theString));
+            //   System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Ordenes.json", Holsa.RemoveWhitespace(theString));
                Utilidades cn = new Utilidades();
                string sConnectionString = ConfigurationManager.ConnectionStrings["COSTOSVIPEntities"].ConnectionString;
                SqlBulkCopy copia = new SqlBulkCopy(sConnectionString);
@@ -207,7 +207,7 @@ namespace WebCostos.Servicios
                var aStringBuilder = new StringBuilder(theString);
                theString = aStringBuilder.ToString().TrimEnd('"');
                theString = theString.TrimStart('"');
-               System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Pedidos.json", Holsa.RemoveWhitespace(theString));
+          //     System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Pedidos.json", Holsa.RemoveWhitespace(theString));
                Utilidades cn = new Utilidades();
                string sConnectionString = ConfigurationManager.ConnectionStrings["COSTOSVIPEntities"].ConnectionString;
                SqlBulkCopy copia = new SqlBulkCopy(sConnectionString);
@@ -244,7 +244,7 @@ namespace WebCostos.Servicios
                var aStringBuilder = new StringBuilder(theString);
                theString = aStringBuilder.ToString().TrimEnd('"');
                theString = theString.TrimStart('"');
-               System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Descuentos.json", Holsa.RemoveWhitespace(theString));
+            //   System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\Descuentos.json", Holsa.RemoveWhitespace(theString));
                Utilidades cn = new Utilidades();
                string sConnectionString = ConfigurationManager.ConnectionStrings["COSTOSVIPEntities"].ConnectionString;
                SqlBulkCopy copia = new SqlBulkCopy(sConnectionString);
@@ -278,7 +278,7 @@ namespace WebCostos.Servicios
 
                    JavaScriptSerializer serializer = new JavaScriptSerializer();
                    serializer.MaxJsonLength = 999999999;
-                   System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\CostoPptoProg.json", Holsa.RemoveWhitespace(serializer.Serialize(i)));
+              //     System.IO.File.WriteAllText(@"F:\Usuarios\jvidal\Documents\Log\CostoPptoProg.json", Holsa.RemoveWhitespace(serializer.Serialize(i)));
 
                     var theString = dtBuildSQL;
                     var aStringBuilder = new StringBuilder(theString);

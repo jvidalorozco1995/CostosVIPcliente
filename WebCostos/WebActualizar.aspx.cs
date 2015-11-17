@@ -29,7 +29,7 @@ namespace WebCostos
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Session["Proyecto"] = HiddenField1.Value;
+            Session["Proyecto"] = DropDownList1.SelectedValue;
            /// ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "DoPostBack", "__doPostBack(sender, e)", true);
         
         }
@@ -67,7 +67,7 @@ namespace WebCostos
                        Response.Buffer = true;
                        Response.Charset = "";
                        Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                       Response.AddHeader("content-disposition", "attachment;filename=Costos100%" + HiddenField1.Value + ".xlsx");
+                       Response.AddHeader("content-disposition", "attachment;filename=Costos100%" + DropDownList1.SelectedValue + ".xlsx");
 
 
 
@@ -236,7 +236,7 @@ namespace WebCostos
 
                     FechasBll b = new FechasBll();
 
-                    b.actualizarfecha(int.Parse(e.CommandArgument.ToString()), "CMS");
+                    b.actualizarfecha(int.Parse(e.CommandArgument.ToString()), DropDownList1.SelectedValue);
                     GridView1.DataBind();
                     Response.Write("<script>window.alert('" + "Se ha Cambiado el Estado de Esta Fecha a Linea base" + "');</script>");
                     

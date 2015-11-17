@@ -156,7 +156,7 @@ namespace Bll
 
         #region METODOS PARA SACAR EL GLOBAL
         /*Metodo para traer el global*/
-        public List<ConsolidadoGlobal> ListaConsolidadoGlobal() {
+        public List<ConsolidadoGlobal> ListaConsolidadoGlobal(string Proyecto) {
 
             listaConsolidadoGlobal = new List<ConsolidadoGlobal>();
             ConsolidadoGlobal cons = new ConsolidadoGlobal();
@@ -166,10 +166,10 @@ namespace Bll
                 cons.Vlrproy = ListaConsolidadoDirectos.First().Vlrproy + ListaConsolidadoIndirectos.First().Vlrproy;
                 cons.VlrCausado = ListaConsolidadoDirectos.First().VlrCausado + ListaConsolidadoIndirectos.First().VlrCausado;
                 cons.Vlrejecutado = ListaConsolidadoDirectos.First().Vlrejecutado + ListaConsolidadoIndirectos.First().Vlrejecutado;
-                cons.Area = DescripcionProyecto("CMS").Area;
+                cons.Area = DescripcionProyecto(Proyecto).Area;
                 cons.Vlrmt2vivienda =ListaConsolidadoDirectos.First().Vlrmt2vivienda + ListaConsolidadoIndirectos.First().Vlrmt2vivienda;
                 cons.Vlrxvivienda = ListaConsolidadoDirectos.First().Vlrxvivienda + ListaConsolidadoIndirectos.First().Vlrxvivienda;
-                cons.Nviviendas = DescripcionProyecto("CMS").Nviviendas;
+                cons.Nviviendas = DescripcionProyecto(Proyecto).Nviviendas;
                 cons.Causado = cons.VlrCausado / cons.Vlrproy;
                 cons.Ejecutado = cons.Vlrejecutado / cons.Vlrproy;
                 cons.Presupuesto = "Total";
@@ -184,7 +184,7 @@ namespace Bll
 
         #region METODOS PARA SACAR LOS COSTOS DIRECTOS
         /*Metodo para traer consolidado de costos Directos*/
-        public List<ConsolidadoCostosDirectos> ListaConsolidadoCostosDirectos()
+        public List<ConsolidadoCostosDirectos> ListaConsolidadoCostosDirectos(string Proyecto)
         {
 
             ListaConsolidadoDirectos = new List<ConsolidadoCostosDirectos>();
@@ -203,8 +203,8 @@ namespace Bll
                                      Ejecutado = (ListaGruposCostosDirectos.Sum(ed => ed.Vlrejecutado) == 0) || (ListaGruposCostosDirectos.Sum(ed => ed.Vlrproy) == 0) ? 0 : ListaGruposCostosDirectos.Sum(_ => _.Vlrejecutado) / ListaGruposCostosDirectos.Sum(_ => _.Vlrproy),
                                      Vlrmt2vivienda = ListaGruposCostosDirectos.Sum(ed => ed.Vlrmt2vivienda),
                                      Vlrxvivienda = ListaGruposCostosDirectos.Sum(ed => ed.Vlrxvivienda),
-                                     Area = DescripcionProyecto("CMS").Area,
-                                     Nviviendas = DescripcionProyecto("CMS").Nviviendas,
+                                     Area = DescripcionProyecto(Proyecto).Area,
+                                     Nviviendas = DescripcionProyecto(Proyecto).Nviviendas,
                                  };
 
                 ListaConsolidadoDirectos.Add(a);
@@ -269,7 +269,7 @@ namespace Bll
         }
         /*-----------------------------------------------*/
         /*Metodo para traer el detalle de costos Directos*/
-        public List<DetallesCostosDirectos> ListaDetalleCostosDirectosMetodo()
+        public List<DetallesCostosDirectos> ListaDetalleCostosDirectosMetodo(string Proyecto)
         {
 
             ListaDetalleCostosDirectos = new List<DetallesCostosDirectos>();
@@ -288,10 +288,10 @@ namespace Bll
                                    Vlrejecutado = line.Vlrejec,
                                    Causado = (line.Vlrcausado) == 0 || (line.Vlrproy)==0 ? 0 : line.Vlrcausado / line.Vlrproy,
                                    Ejecutado = (line.Vlrejec)==0 || (line.Vlrproy)== 0 ? 0 : line.Vlrejec / line.Vlrproy,
-                                   Vlrmt2vivienda = (line.Vlrproy == 0) ? 0 : line.Vlrproy / DescripcionProyecto("CMS").Area,
-                                   Vlrxvivienda = (line.Vlrproy == 0) ? 0 : line.Vlrproy / DescripcionProyecto("CMS").Nviviendas,
-                                   Area = DescripcionProyecto("CMS").Area,
-                                   Nviviendas = DescripcionProyecto("CMS").Nviviendas,
+                                   Vlrmt2vivienda = (line.Vlrproy == 0   || DescripcionProyecto(Proyecto).Area==0) ? 0 : line.Vlrproy / DescripcionProyecto(Proyecto).Area,
+                                   Vlrxvivienda = (line.Vlrproy == 0 || DescripcionProyecto(Proyecto).Nviviendas==0) ? 0 : line.Vlrproy / DescripcionProyecto(Proyecto).Nviviendas,
+                                   Area = DescripcionProyecto(Proyecto).Area,
+                                   Nviviendas = DescripcionProyecto(Proyecto).Nviviendas,
                                    Nombreclasi = line.nombreclasi
 
                                }).ToList();
@@ -345,7 +345,7 @@ namespace Bll
         #region METODOS PARA SACAR LOS COSTOS INDIRECTOS
 
         /*Consolidado costos indirectos*/
-        public List<ConsolidadoCostosIndirectos> ListaConsolidadoCostosIndirectosMetodo()
+        public List<ConsolidadoCostosIndirectos> ListaConsolidadoCostosIndirectosMetodo(string Proyecto)
         {
 
 
@@ -366,8 +366,8 @@ namespace Bll
                                     Ejecutado = (g.Sum(ed => ed.Vlrejecutado) == 0) || (g.Sum(ed => ed.Vlrproy) == 0) ? 0 : g.Sum(_ => _.Vlrejecutado) / g.Sum(_ => _.Vlrproy),
                                     Vlrmt2vivienda = g.Sum(ed => ed.Vlrmt2vivienda),
                                     Vlrxvivienda = g.Sum(ed => ed.Vlrxvivienda),
-                                    Area = DescripcionProyecto("CMS").Area,
-                                    Nviviendas = DescripcionProyecto("CMS").Nviviendas
+                                    Area = DescripcionProyecto(Proyecto).Area,
+                                    Nviviendas = DescripcionProyecto(Proyecto).Nviviendas
 
                                 });
 
@@ -400,7 +400,7 @@ namespace Bll
         }
         /*-----------------------------------------*/
         /*Grupos costos indirectos*/
-        public List<GruposCostosIndirectos> ListaGruposCostosIndirectosMetodo()
+        public List<GruposCostosIndirectos> ListaGruposCostosIndirectosMetodo(string Proyecto)
         {
 
 
@@ -421,8 +421,8 @@ namespace Bll
                                     Ejecutado = (g.Sum(ed => ed.Vlrejecutado) == 0) || (g.Sum(ed => ed.Vlrproy) == 0) ? 0 : g.Sum(_ => _.Vlrejecutado) / g.Sum(_ => _.Vlrproy),
                                     Vlrmt2vivienda = g.Sum(ed => ed.Vlrmt2vivienda),
                                     Vlrxvivienda = g.Sum(ed => ed.Vlrxvivienda),
-                                    Area = DescripcionProyecto("CMS").Area,
-                                    Nviviendas = DescripcionProyecto("CMS").Nviviendas
+                                    Area = DescripcionProyecto(Proyecto).Area,
+                                    Nviviendas = DescripcionProyecto(Proyecto).Nviviendas
 
                                 });
 
@@ -455,7 +455,7 @@ namespace Bll
         }
         /*-----------------------------------------*/
         /*Detalles costos indirectos*/
-        public List<DetallesCostosIndirectos> ListaDetalleCostosIndirectosMetodo()
+        public List<DetallesCostosIndirectos> ListaDetalleCostosIndirectosMetodo(string Proyecto)
         {
 
             ListaDetalleCostosIndirectos = new List<DetallesCostosIndirectos>();
@@ -475,10 +475,10 @@ namespace Bll
                                    Vlrejecutado = line.Vlrejec,
                                    Causado = (line.Vlrcausado) == 0 || (line.Vlrproy) == 0 ? 0 : line.Vlrcausado / line.Vlrproy,
                                    Ejecutado = (line.Vlrejec) == 0 || (line.Vlrproy) == 0 ? 0 : line.Vlrejec / line.Vlrproy,
-                                   Vlrmt2vivienda = (line.Vlrproy == 0) ? 0 : line.Vlrproy / DescripcionProyecto("CMS").Area,
-                                   Vlrxvivienda = (line.Vlrproy == 0) ? 0 : line.Vlrproy / DescripcionProyecto("CMS").Nviviendas,
-                                   Area = DescripcionProyecto("CMS").Area,
-                                   Nviviendas = DescripcionProyecto("CMS").Nviviendas,
+                                   Vlrmt2vivienda = (line.Vlrproy == 0 ||  DescripcionProyecto(Proyecto).Area==0) ? 0 : line.Vlrproy / DescripcionProyecto(Proyecto).Area,
+                                   Vlrxvivienda = (line.Vlrproy == 0 || DescripcionProyecto(Proyecto).Nviviendas==0) ? 0 : line.Vlrproy / DescripcionProyecto(Proyecto).Nviviendas,
+                                   Area = DescripcionProyecto(Proyecto).Area,
+                                   Nviviendas = DescripcionProyecto(Proyecto).Nviviendas,
                                    Capitulo =line.Capitulo
                                  //  Nombreclasi = line.nombreclasi
 
@@ -505,7 +505,7 @@ namespace Bll
                 }*/
 
             }
-            ListaGruposCostosIndirectosMetodo();
+            ListaGruposCostosIndirectosMetodo(Proyecto);
             return ListaDetalleCostosIndirectos;
 
 

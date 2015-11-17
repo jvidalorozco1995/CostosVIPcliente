@@ -37,36 +37,36 @@ namespace WebCostos.Servicios
         /*Para traer el detalle de los costos indirectos*/
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string DetalleCostosIndirectosSemanaPasada(int IdFecha)
+        public string DetalleCostosIndirectosSemanaPasada(int IdFecha, string Proyecto)
         {
 
             Bll.SemanaPasadaBll b = new Bll.SemanaPasadaBll();
 
-            return JsonConvert.SerializeObject(b.ListaDetalleCostosIndirectosMetodo());
+            return JsonConvert.SerializeObject(b.ListaDetalleCostosIndirectosMetodo(Proyecto));
         }
         /*-------------------------------------------------*/
 
         /*Para traer los grupos de los costos indirectos*/
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string GruposCostosIndirectosSemanaPasada(int IdFecha)
+        public string GruposCostosIndirectosSemanaPasada(int IdFecha, string Proyecto)
         {
 
             Bll.SemanaPasadaBll b = new Bll.SemanaPasadaBll();
 
-            return JsonConvert.SerializeObject(b.ListaGruposCostosIndirectosMetodo());
+            return JsonConvert.SerializeObject(b.ListaGruposCostosIndirectosMetodo(Proyecto));
         }
         /*-------------------------------------------------*/
 
         /*Para traer los grupos de los costos indirectos*/
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string ConsolidadoCostosIndirectosSemanaPasada(int IdFecha)
+        public string ConsolidadoCostosIndirectosSemanaPasada(int IdFecha, string Proyecto)
         {
 
             Bll.SemanaPasadaBll b = new Bll.SemanaPasadaBll();
 
-            return JsonConvert.SerializeObject(b.ListaConsolidadoCostosIndirectosMetodo());
+            return JsonConvert.SerializeObject(b.ListaConsolidadoCostosIndirectosMetodo(Proyecto));
         }
         /*-------------------------------------------------*/
         #endregion
@@ -75,12 +75,12 @@ namespace WebCostos.Servicios
         /*Para traer el detalle de los costos indirectos*/
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string DetalleCostosDirectosSemanaPasada(int IdFecha)
+        public string DetalleCostosDirectosSemanaPasada(int IdFecha, string Proyecto)
         {
 
             Bll.SemanaPasadaBll b = new Bll.SemanaPasadaBll();
 
-            return JsonConvert.SerializeObject(b.ListaDetalleCostosDirectosMetodo());
+            return JsonConvert.SerializeObject(b.ListaDetalleCostosDirectosMetodo(Proyecto));
         }
         /*-------------------------------------------------*/
 
@@ -99,12 +99,12 @@ namespace WebCostos.Servicios
         /*Para traer el consolidado de los costos indirectos*/
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string ConsolidadoCostosDirectosSemanaPasada(int IdFecha)
+        public string ConsolidadoCostosDirectosSemanaPasada(int IdFecha, string Proyecto)
         {
 
             Bll.SemanaPasadaBll b = new Bll.SemanaPasadaBll();
 
-            return JsonConvert.SerializeObject(b.ListaConsolidadoCostosDirectos());
+            return JsonConvert.SerializeObject(b.ListaConsolidadoCostosDirectos(Proyecto));
         }
         /*-------------------------------------------------*/
         #endregion
